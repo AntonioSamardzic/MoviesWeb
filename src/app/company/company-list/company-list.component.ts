@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyService } from '../company.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { SpinnerService } from 'src/app/shared/spinner.service';
 
 @Component({
   selector: 'app-company-list',
@@ -9,15 +12,41 @@ import { CompanyService } from '../company.service';
 export class CompanyListComponent implements OnInit {
 
   constructor(
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private toastr: ToastrService,
+    private router: Router,
   ) { }
 
-    private companies = [];
+    public companies = [];
 
   ngOnInit() {
-    this.companyService.getAll().subscribe((response: any) => {
-      this.companies = response;
-  });
+    this.getAllCompanies();
 
 }
+
+onAdd() {
+  this.router.navigate (['companies/new']);
+}
+
+onEdit(companyId) {
+  this.router.navigate(['companies', companyId]);
+}
+
+getAllCompanies() {
+  this.companyService.getAll().subscribe((response: any) => {
+    this.companies = response;
+  });
+}
+
+onDelete(companyId) {
+  if (confirm('Jeste li sigurni?')) {
+    this.companyService.deleteOne(companyId).subscribe(result => {
+      this.getAllCompanies();
+      this.toastr.success('Uspješno obrisano!');
+    });
+  }
+}
+
+
+
 }

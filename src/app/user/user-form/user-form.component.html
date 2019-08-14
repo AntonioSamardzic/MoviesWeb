@@ -1,0 +1,37 @@
+<div>
+    <div [hidden]="errorMessage.length == 0">
+        {{errorMessage}}
+    </div>
+    <form (submit)="onSubmit()" #userForm="ngForm">
+        <input title="id" name="id" type="hidden" [(ngModel)]="user.id" />
+        <div class="form-group">
+            <label for="email">
+                Email
+            </label>
+            <input required type="text" name="email" [(ngModel)]="user.email" class="form-control" id="email">
+        </div>
+        <div class="form-group">
+            <label for="card">
+                Card
+            </label>
+            <input required type="text" name="card" [(ngModel)]="user.card" class="form-control"
+                id="card">
+        </div>
+        <div class="form-group">
+            <label for="firstName">
+                First Name
+            </label>
+            <input required type="text" name="firstName" [(ngModel)]="user.firstName" class="form-control" id="firstName">
+        </div>
+        <div class="form-group">
+            <label for="lastName">
+                Last Name
+            </label>
+            <input required type="text" name="lastName" [(ngModel)]="user.lastName" class="form-control" id="lastName">
+        </div>
+        
+        <button [disabled]="!userForm.form.valid" type="submit" class="btn btn-primary">
+            Submit
+        </button>
+    </form>
+</div>

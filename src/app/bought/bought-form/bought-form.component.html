@@ -1,0 +1,39 @@
+<div>
+    <div [hidden]="errorMessage.length == 0">
+        {{errorMessage}}
+    </div>
+    <form (submit)="onSubmit()" #boughtForm="ngForm">
+        <input title="userId" name="userId" type="hidden" [(ngModel)]="bought.userId" />
+        <input title="movieId" name="movieId" type="hidden" [(ngModel)]="bought.movieId" />
+        <div class="form-group">
+            <label for="userId">
+                User
+            </label>
+            <select  required class="form-control" name="userId" [(ngModel)]="selectedUserId">
+                <option *ngFor="let user of users" [value]="user.id">
+                    {{user.firstName}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="movieId">
+                Movie
+            </label>
+            <select required class="form-control" name="movieId" [(ngModel)]="selectedMovieId">
+                <option *ngFor="let movie of movies" [value]="movie.id">
+                    {{movie.name}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="price">
+                Total Price
+            </label>
+            <input required type="decimal" name="price" [(ngModel)]="bought.price" class="form-control"
+                id="price">
+        </div>
+        <button [disabled]="!boughtForm.form.valid" type="submit" class="btn btn-primary">
+            Submit
+        </button>
+    </form>
+</div>

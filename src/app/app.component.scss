@@ -3,3 +3,21 @@ body, html {
     margin: 0;
     padding: 0;
 }
+
+$hdzBlue: #295BA5;
+
+#loading {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.5;
+    background-color: $hdzBlue;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}

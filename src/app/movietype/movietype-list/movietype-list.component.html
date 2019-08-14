@@ -1,1 +1,22 @@
-<p>movietype-list works!</p>
+<div class="row">
+    <div class="col-sm-12 mb-3">
+        <button class="btn add btn-primary" (click)="onAdd()"><i class="fa fa-plus"></i></button>
+    </div>
+<div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">genre</th>
+        <th scope="col">action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movietype of movietypes">
+        <td>{{ movietype.genre}}</td>
+        <td><button class="btn bg-secondary"><i class="fa fa-edit" (click)="onEdit(movietype.id)"></i></button>
+
+          <button (click)="onDelete(movietype.id)" class="btn ml-3 bg-danger"><i class="fa fa-trash"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+ </div>

@@ -1,0 +1,32 @@
+<div>
+  <div [hidden]="errorMessage.length == 0">
+      {{errorMessage}}
+  </div>
+  <form (submit)="onSubmit()" #actorForm="ngForm">
+      <input title="id" name="id" type="hidden" [(ngModel)]="actor.id" />
+      <div class="form-group">
+          <label for="firstName">
+              First Name
+          </label>
+          <input required type="text" name="firstName" [(ngModel)]="actor.firstName" class="form-control" id="firstName">
+      </div>
+      <div class="form-group">
+          <label for="lastName">
+              Last Name
+          </label>
+          <input required type="lastName" name="lastName" [(ngModel)]="actor.lastName" class="form-control"
+              id="lastName">
+      </div>
+
+      <!-- <div class="form-group">
+          <label for="profileImageUri">
+              Logo Image URL
+          </label>
+          <input type="url" name="profileImageUri" [(ngModel)]="user.profileImageUri" class="form-control"
+              id="profileImageUri">
+      </div> -->
+      <button [disabled]="!userForm.form.valid" type="submit" class="btn btn-primary">
+          Submit
+      </button>
+  </form>
+</div>
