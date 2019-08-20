@@ -27,7 +27,7 @@ export class BoughtService {
   }
 
   public addOne(bought) {
-    return this.http.post(environment.apiUrl +  this.BOUGHTS_URL, bought);
+    return this.http.post(environment.apiUrl +  this.BOUGHTS_URL + '/' , bought);
   }
 
   public putOne(boughtId, bought) {

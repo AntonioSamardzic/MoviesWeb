@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SpinnerService } from 'src/app/shared/spinner.service';
 import { ToastrService } from 'ngx-toastr';
 import { CompanyService } from '../company.service';
+import { Location } from '@angular/common';
 
 
 
@@ -18,7 +19,8 @@ export class CompanyFormComponent implements OnInit {
     private spinner: SpinnerService,
     private router: Router,
     private toastr: ToastrService,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private location: Location
     ) { }
 
 
@@ -59,6 +61,11 @@ export class CompanyFormComponent implements OnInit {
         this.errorMessage = firstError[firstKey][0];
         this.spinner.hide();
       });
+  }
+
+  goBack() {
+    this.location.back();
+    return false;
   }
 
 }

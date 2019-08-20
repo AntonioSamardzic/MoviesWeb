@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SpinnerService } from 'src/app/shared/spinner.service';
 import { ToastrService } from 'ngx-toastr';
 import { MovieService } from 'src/app/movie/movie.service';
 import { UserService } from 'src/app/user/user.service';
 import { BoughtService } from '../bought.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-bought-form',
@@ -16,11 +16,11 @@ export class BoughtFormComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private boughtService: BoughtService,
-    private spinner: SpinnerService,
     private router: Router,
     private toastr: ToastrService,
     private movieService: MovieService,
-    private userService: UserService
+    private userService: UserService,
+    private location: Location
   ) { }
 
 
@@ -60,22 +60,21 @@ export class BoughtFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.spinner.show();
 
-    this.bought.actorId = this.selectedUserId;
+    this.bought.userId = this.selectedUserId;
     this.bought.movieId = this.selectedMovieId;
 
     this.boughtService.submit(this.bought).subscribe(
       (response: any) => {
         this.toastr.success('Uspješno izvršeno!');
         this.router.navigate(['boughts']);
-        this.spinner.hide();
+
       },
       (response: any) => {
         const firstError = response.error.errors;
         const firstKey = Object.keys(firstError)[0];
         this.errorMessage = firstError[firstKey][0];
-        this.spinner.hide();
+
       });
   }
 
@@ -89,6 +88,11 @@ export class BoughtFormComponent implements OnInit {
     this.userService.getAll().subscribe(response => {
       this.users = response;
     });
+  }
+
+  goBack() {
+    this.location.back();
+    return false;
   }
 
 }

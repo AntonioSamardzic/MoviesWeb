@@ -3,6 +3,7 @@ import { SpinnerService } from 'src/app/shared/spinner.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { MovietypeService } from '../movietype.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-movietype-form',
@@ -17,6 +18,7 @@ export class MovietypeFormComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService,
     private movietypeService: MovietypeService,
+    private location: Location
   ) { }
 
   public movietype: any = {};
@@ -53,6 +55,11 @@ export class MovietypeFormComponent implements OnInit {
         this.errorMessage = firstError[firstKey][0];
         this.spinner.hide();
       });
+  }
+
+  goBack() {
+    this.location.back();
+    return false;
   }
 
 

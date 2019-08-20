@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SpinnerService } from 'src/app/shared/spinner.service';
 import { ToastrService } from 'ngx-toastr';
 import { ActorService } from '../actor.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-actor-form',
@@ -14,9 +14,10 @@ export class ActorFormComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private actorService: ActorService,
-    private spinner: SpinnerService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private location: Location
+
   ) { }
 
 
@@ -36,25 +37,28 @@ export class ActorFormComponent implements OnInit {
   getActor(actorId) {
     this.actorService.getOne(actorId).subscribe(response => {
       this.actor = response;
-      this.spinner.hide();
     });
   }
 
   onSubmit() {
-    this.spinner.show();
 
     this.actorService.submit(this.actor).subscribe(
-      () => {
+      (response: any) => {
         this.toastr.success('Uspješno izvršeno!');
-        this.router.navigate(['users']);
-        this.spinner.hide();
+        this.router.navigate(['actors']);
+
       },
       (response: any) => {
         const firstError = response.error.errors;
         const firstKey = Object.keys(firstError)[0];
         this.errorMessage = firstError[firstKey][0];
-        this.spinner.hide();
+
       });
+  }
+
+  goBack() {
+    this.location.back();
+    return false;
   }
 
 }

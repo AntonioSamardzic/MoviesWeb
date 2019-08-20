@@ -15,6 +15,7 @@ import { NavbarComponent } from './templates/navbar/navbar.component';
 import { FooterComponent } from './templates/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { HomeModule } from './home/home.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { ToastrModule } from 'ngx-toastr';
     EngagementModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    HomeModule,
     ToastrModule.forRoot()
   ],
   providers: [],

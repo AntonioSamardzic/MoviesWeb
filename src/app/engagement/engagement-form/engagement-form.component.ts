@@ -5,6 +5,7 @@ import { SpinnerService } from 'src/app/shared/spinner.service';
 import { ToastrService } from 'ngx-toastr';
 import { ActorService } from 'src/app/actor/actor.service';
 import { EngagementService } from '../engagement.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-engagement-form',
@@ -20,7 +21,8 @@ export class EngagementFormComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService,
     private actorService: ActorService,
-    private engagementService: EngagementService
+    private engagementService: EngagementService,
+    private location: Location
   ) { }
 
   public engagement: any = {};
@@ -85,5 +87,10 @@ export class EngagementFormComponent implements OnInit {
     this.actorService.getAll().subscribe((response: any) => {
       this.actors = response;
     });
+  }
+
+  goBack() {
+    this.location.back();
+    return false;
   }
 }

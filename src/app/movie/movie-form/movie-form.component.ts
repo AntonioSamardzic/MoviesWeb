@@ -4,6 +4,7 @@ import { MovieService } from '../movie.service';
 import { ToastrService } from 'ngx-toastr';
 import { CompanyService } from 'src/app/company/company.service';
 import { MovietypeService } from 'src/app/movietype/movietype.service';
+import { Location } from '@angular/common';
 
 @Component ({
   selector: 'app-movie-form',
@@ -18,7 +19,8 @@ export class MovieFormComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService,
     private companyService: CompanyService,
-    private movietypeService: MovietypeService
+    private movietypeService: MovietypeService,
+    private location: Location
   ) { }
 
   public movie: any = {};
@@ -79,6 +81,11 @@ getMovietypes() {
       this.movietypes = response;
     }
   );
+}
+
+goBack() {
+  this.location.back();
+  return false;
 }
 
 }

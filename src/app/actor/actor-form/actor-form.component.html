@@ -25,7 +25,8 @@
           <input type="url" name="profileImageUri" [(ngModel)]="user.profileImageUri" class="form-control"
               id="profileImageUri">
       </div> -->
-      <button [disabled]="!userForm.form.valid" type="submit" class="btn btn-primary">
+      <button (click)="goBack()" class="btn btn-outline-danger float-left">Cancel</button>&nbsp;&nbsp;
+      <button [disabled]="!actorForm.form.valid" type="submit" class="btn btn-primary">
           Submit
       </button>
   </form>

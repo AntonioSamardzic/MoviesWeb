@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { SpinnerService } from 'src/app/shared/spinner.service';
 import { ToastrService } from 'ngx-toastr';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-user-form',
@@ -16,7 +17,8 @@ export class UserFormComponent implements OnInit {
     private userService: UserService,
     private spinner: SpinnerService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private location: Location
   ) { }
 
   public user: any = {};
@@ -54,6 +56,11 @@ export class UserFormComponent implements OnInit {
         this.errorMessage = firstError[firstKey][0];
         this.spinner.hide();
       });
+  }
+
+  goBack() {
+    this.location.back();
+    return false;
   }
 
 }

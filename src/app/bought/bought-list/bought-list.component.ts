@@ -26,7 +26,7 @@ export class BoughtListComponent implements OnInit {
   }
 
   onAdd() {
-    this.router.navigate (['bought/new']);
+    this.router.navigate (['boughts/new']);
   }
 
   onEdit(boughtId) {

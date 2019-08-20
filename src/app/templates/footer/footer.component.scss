@@ -1,4 +1,4 @@
-.footer {
+footer {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -6,6 +6,10 @@
   margin-left: auto;
   margin-right: auto;
   padding: auto;
-  color: whitesmoke;
+  background-color: #000000;
+  color: gold;
   text-align: center;
+}
+a {
+  color: white;
 }

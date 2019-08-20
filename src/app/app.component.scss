@@ -1,8 +1,17 @@
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+
+//$brand-danger: #FFF !default;
 body, html {
     margin: 0;
     padding: 0;
 }
+
+$theme-colors: (
+  "primary": #0074d9,
+  "danger": blue
+);
 
 $hdzBlue: #295BA5;
 

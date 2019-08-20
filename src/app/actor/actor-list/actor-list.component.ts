@@ -43,10 +43,10 @@ export class ActorListComponent implements OnInit {
   }
 
   onDelete(actorId) {
-    if (confirm('Da li ste sigurni?')) {
+    if (confirm('Jeste li sigurni?')) {
       this.actorService.deleteOne(actorId).subscribe(result => {
         this.getAllActors();
-        this.toastr.success('Bravo frajeru.');
+        this.toastr.success('Uspješno Obrisano!');
       });
     }
   }

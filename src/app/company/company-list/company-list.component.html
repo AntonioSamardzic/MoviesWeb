@@ -1,33 +1,65 @@
 <div class="row">
-    <div class="col-sm-12 mb-3">
-        <button class="btn add btn-primary" (click)="onAdd()"><i class="fa fa-plus"></i></button>
-    </div>
-<div>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">name</th>
-        <th scope="col">address</th>
-        <th scope="col">phoneNumber</th>
-        <th scope="col">url</th>
-        <th scope="col">action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let company of companies">
-        <td>{{ company.name}}</td>
-        <td>{{ company.address }}</td>
-        <td>{{ company.phoneNumber }}</td>
-        <td>{{ company.url }}</td>
-        <td><button class="btn bg-secondary">
-          <i class="fa fa-edit" (click)="onEdit(company.id)"></i>
-        </button>
+  <div class="col-sm-12 mb-3">
+    <button class="btn add btn-outline-warning" (click)="onAdd()"><i class="fa fa-plus"></i></button>
+  </div>
+  <div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Company Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Web-Page</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let company of companies">
+          <td>{{ company.name}}</td>
+          <td>{{ company.address }}</td>
+          <td>{{ company.phoneNumber }}</td>
+          <td>{{ company.url }}</td>
+          <td><button (click)="onEdit(company.id)" class="btn btn-outline-dark">
+              <i class="fa fa-edit"></i>
+            </button>
 
-        <button (click)="onDelete(company.id)" class="btn ml-3 bg-danger">
-            <i class="fa fa-trash"></i>
-        </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
- </div>
+            <button (click)="onDelete(company.id)" class="btn ml-3 bg-danger">
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+  <div class="row">
+    <nav aria-label="Page navigation example col-sm-4">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <li>
+          <div>
+            <div class="col col-sm-8">
+              <div class="btn-group float-right">
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  25
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-menu" href="#">25</a>
+                  <a class="dropdown-item" href="#">50</a>
+                  <a class="dropdown-item" href="#">100</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>

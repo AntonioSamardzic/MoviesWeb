@@ -9,18 +9,27 @@
   integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 
-
+<body>
   <section>
     <header>
       <app-navbar></app-navbar>
     </header>
+  </section>
     <main class="container mt-3 pb-5">
-      <div id="loading" class="hidden">
-        <img src="assets/loading.gif" alt="loading">
-      </div>
       <router-outlet></router-outlet>
     </main>
     <footer>
       <app-footer></app-footer>
     </footer>
-  </section>
+  
+</body>
+
+
+<!--
+<app-navbar></app-navbar>
+<div class="container mt-3 pb-5">
+  <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer> -->
+
+

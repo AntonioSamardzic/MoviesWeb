@@ -41,10 +41,10 @@ export class UserListComponent implements OnInit {
   }
 
   onDelete(userId) {
-    if (confirm('Da li ste sigurni?')) {
+    if (confirm('Jeste li sigurni?')) {
       this.userService.deleteOne(userId).subscribe(result => {
         this.getAllUsers();
-        this.toastr.success('Bravo frajeru.');
+        this.toastr.success('Uspješno Obrisano!');
       });
     }
   }

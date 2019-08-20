@@ -32,6 +32,7 @@
             <input required type="decimal" name="price" [(ngModel)]="bought.price" class="form-control"
                 id="price">
         </div>
+        <button (click)="goBack()" class="btn btn-outline-danger float-left">Cancel</button>&nbsp;&nbsp;
         <button [disabled]="!boughtForm.form.valid" type="submit" class="btn btn-primary">
             Submit
         </button>
