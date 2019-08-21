@@ -8,28 +8,26 @@
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
   integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-
+<html>
 <body>
-  <section>
+
     <header>
       <app-navbar></app-navbar>
     </header>
-  </section>
-    <main class="container mt-3 pb-5">
+
+  <section>
+    <main class="container mt-3 pb-5" style="min-height: 50vh;">
       <router-outlet></router-outlet>
     </main>
+  </section>
+
     <footer>
       <app-footer></app-footer>
     </footer>
-  
+
 </body>
+</html>
 
 
-<!--
-<app-navbar></app-navbar>
-<div class="container mt-3 pb-5">
-  <router-outlet></router-outlet>
-</div>
-<app-footer></app-footer> -->
 
 
