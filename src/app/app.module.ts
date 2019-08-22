@@ -16,6 +16,7 @@ import { FooterComponent } from './templates/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HomeModule } from './home/home.module';
+import { LoginModule } from './login/login.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { HomeModule } from './home/home.module';
     HttpClientModule,
     BrowserAnimationsModule,
     HomeModule,
+    LoginModule,
     ToastrModule.forRoot()
   ],
   providers: [],
