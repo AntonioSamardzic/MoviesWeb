@@ -17,7 +17,7 @@
       <tr *ngFor="let bought of boughts">
         <td>{{ bought.boughtDate | date: 'dd.MM.yyyy.'}}</td>
         <td>{{ bought.price + " " + "Kn"}}</td>
-        <td>{{ bought.user.firstName }}</td>
+        <td>{{ bought.user.firstName + " " + bought.user.lastName}}</td>
         <td>{{ bought.movie.name }}</td>
         <td><button (click)="onEdit(bought.id)" class="btn btn-outline-dark"><i class="fa fa-edit" ></i></button>
 
@@ -42,7 +42,7 @@
             <div>
             <div class="col col-sm-8">
               <div class="btn-group float-right">
-                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   25
                 </button>
                 <div class="dropdown-menu">

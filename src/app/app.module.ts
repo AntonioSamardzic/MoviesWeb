@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompanyModule } from './company/company.module';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ActorModule } from './actor/actor.module';
 import { UserModule } from './user/user.module';
 import { BoughtModule } from './bought/bought.module';
@@ -17,11 +17,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
+import { FormsModule } from '@angular/forms';
+import { AuthTokenInterceptor } from './shared/auth-token.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -39,9 +42,12 @@ import { LoginModule } from './login/login.module';
     BrowserAnimationsModule,
     HomeModule,
     LoginModule,
+    FormsModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

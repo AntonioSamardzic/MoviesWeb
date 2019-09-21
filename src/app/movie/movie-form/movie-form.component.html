@@ -1,24 +1,24 @@
 <div>
   <div [hidden]="errorMessage.length == 0">{{ errorMessage }}</div>
-  <form (submit)="onSubmit()" #movieForm="ngForm">
+  <form class="col-sm-6 mx-auto" (submit)="onSubmit()" #movieForm="ngForm">
     <input title="name" name="name" type="hidden" [(ngModel)]="movie.id" />
     <div class="form-group">
       <label for="title">Movie Name</label>
-      <input required type="text" name="name" [(ngModel)]="movie.name" class="form-control" id="name">
+      <input placeholder="MyMovie" required type="text" name="name" [(ngModel)]="movie.name" class="form-control" id="name">
     </div>
 
     <div class="form-group">
       <label for="releaseDate">Release Date</label>
-      <input required name="releaseDate" type="text" title="releaseDate" [(ngModel)]="movie.releaseDate"
+      <input placeholder="12.07.2121." required name="releaseDate" type="text" title="releaseDate" [(ngModel)]="movie.releaseDate"
         class="form-control" id="releaseDate">
     </div>
     <div class="form-group">
       <label for="releaseDate"> Price</label>
-      <input required name="price" type="text" title="price" [(ngModel)]="movie.price" class="form-control" id="price">
+      <input placeholder="99.99" required name="price" type="text" title="price" [(ngModel)]="movie.price" class="form-control" id="price">
     </div>
     <div class="form-group">
       <label for="producent"> Producent </label>
-      <input required name="producent" type="text" title="producent" [(ngModel)]="movie.producent" class="form-control"
+      <input placeholder="Pero Peric" required name="producent" type="text" title="producent" [(ngModel)]="movie.producent" class="form-control"
         id="producent">
     </div>
     <div class="form-group">
@@ -39,7 +39,7 @@
     </div>
     <div class="form-group">
       <label for="description">Description</label>
-      <input required name="description" type="text" title="description" [(ngModel)]="movie.description"
+      <input placeholder="A cool description" required name="description" type="text" title="description" [(ngModel)]="movie.description"
         class="form-control" id="description">
     </div>
     <button (click)="goBack()" class="btn btn-outline-danger float-left">Cancel</button>&nbsp;&nbsp;

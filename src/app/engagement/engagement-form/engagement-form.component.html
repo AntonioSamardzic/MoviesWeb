@@ -2,7 +2,7 @@
   <div [hidden]="errorMessage.length == 0">
       {{errorMessage}}
   </div>
-  <form (submit)="onSubmit()" #engagementForm="ngForm">
+  <form class="col-sm-6 mx-auto" (submit)="onSubmit()" #engagementForm="ngForm">
 
     <!--  <input title="id" name="id" type="hidden" [(ngModel)]="engagement.id"/> -->
       <div class="form-group">

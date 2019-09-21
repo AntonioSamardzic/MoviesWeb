@@ -30,7 +30,6 @@ export class UserListComponent implements OnInit {
   }
 
   onEdit(userId) {
-    this.spinner.show();
     this.router.navigate(['users', userId]);
   }
 

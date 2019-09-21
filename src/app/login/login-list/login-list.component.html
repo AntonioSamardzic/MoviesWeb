@@ -1,22 +1,51 @@
-<div>
-    <div id="login-wrapper" class="pt-5 text-center">
-        <form class="form-signin col-sm-4 mx-auto">
-            <img class="mb-4" src="../../../assets/images/logo.png" alt="" width="72" height="72">
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-            <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-            <div class="checkbox mb-3">
-              <label>
-                <input type="checkbox" value="remember-me"> Remember me
-              </label>
-            </div>
-            <button class="btn btn-lg btn-outline-dark btn-block" type="submit">Sign in</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
-          </form>
-          <div class="dropdown-divider"></div>
-  <a class="dropdown-item" href="#">New around here? Sign up</a>
-  <a class="dropdown-item" href="#">Forgot password?</a>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-6 login-form-1">
+      <h3>Sign In</h3>
+      <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input type="text" name="email" [(ngModel)]="loginData.email" class="form-control" placeholder="Your Email *" value="" />
+      </div>
+      <div class="form-group">
+        <input type="password" name="password" [(ngModel)]="loginData.password" class="form-control" placeholder="Your Password *" value="" />
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btnSubmit" value="Login" />
+      </div>
+    </form>
+
     </div>
+
+    <div class="col-md-6 login-form-2">
+      <div class="login-logo">
+        <img src="../../../assets/images/logo.png" alt="" />
+      </div>
+
+      <h3>Sign Up - It's Free!</h3>
+      <form (ngSubmit)="onRegister()">
+        <div class="form-group">
+          <input type="text" name="email" [(ngModel)]="registerData.email" class="form-control" placeholder="Your Email *" value="" />
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" [(ngModel)]="registerData.password" class="form-control" placeholder="Your Password *" value="" />
+        </div>
+        <div class="form-group">
+          <input type="text" name="firstName" [(ngModel)]="registerData.firstName" class="form-control" placeholder="First Name *" value="" />
+        </div>
+        <div class="form-group">
+          <input type="text" name="lastName" [(ngModel)]="registerData.lastName" class="form-control" placeholder="Last Name *" value="" />
+        </div>
+        <div class="form-group">
+          <input type="text" name="card" [(ngModel)]="registerData.card" class="form-control" placeholder="Card *" value="" />
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btnSubmit" value="Sign Up" />
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

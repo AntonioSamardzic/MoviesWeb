@@ -11,3 +11,17 @@ a:hover{
   color: white;
   box-shadow: 0 4px 2px -2px gold;
 }
+
+.dropdown-item{
+  color: #000000;
+  background-color: gold;
+}
+
+.dropdown-item:hover{
+  color: gold;
+  background-color: #000000;
+}
+
+.dropdown-menu.show {
+  background-color: gold;
+}

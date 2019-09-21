@@ -3,7 +3,7 @@
     <div [hidden]="errorMessage.length == 0">
       {{errorMessage}}
     </div>
-    <form (submit)="onSubmit()" #movietypeForm="ngForm">
+    <form class="col-sm-6 mx-auto" (submit)="onSubmit()" #movietypeForm="ngForm">
       <input title="id" name="id" type="hidden" [(ngModel)]="movietype.id" />
       <div class="form-group">
         <label for="Genre">

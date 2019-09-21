@@ -11,7 +11,7 @@
             </label>
             <select  required class="form-control" name="userId" [(ngModel)]="selectedUserId">
                 <option *ngFor="let user of users" [value]="user.id">
-                    {{user.firstName}}
+                    {{user.firstName + " " + user.lastName}}
                 </option>
             </select>
         </div>
